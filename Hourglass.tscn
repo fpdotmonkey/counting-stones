@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tiles.png" type="Texture" id=1]
+[ext_resource path="res://board_controller.gd" type="Script" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tiles.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 200, 300 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 100, 100 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Hourglass" type="TileMap"]
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( 4, 0, 0, 65539, 0, 0, 65540, 0, 1, 65541, 0, 0, 131074, 0, 0, 131075, 0, 1, 131076, 0, 0, 131077, 0, 1, 131078, 0, 0, 196609, 0, 0, 196610, 0, 1, 196611, 0, 0, 196612, 0, 1, 196613, 0, 0, 196614, 0, 1, 196615, 0, 0, 262144, 0, 0, 262145, 0, 1, 262146, 0, 0, 262147, 0, 65537, 262148, 0, 0, 262149, 0, 65537, 262150, 0, 0, 262151, 0, 1, 262152, 0, 0, 327681, 0, 0, 327682, 0, 1, 327683, 0, 0, 327684, 0, 1, 327685, 0, 0, 327686, 0, 1, 327687, 0, 0, 393218, 0, 0, 393219, 0, 1, 393220, 0, 0, 393221, 0, 1, 393222, 0, 0, 458755, 0, 0, 458756, 0, 1, 458757, 0, 0, 524292, 0, 0 )
+script = ExtResource( 2 )

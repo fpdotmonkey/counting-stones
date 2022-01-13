@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://9x9 Plain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game_controller.gd" type="Script" id=4]
+[ext_resource path="res://level_select.gd" type="Script" id=5]
+[ext_resource path="res://Hourglass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://4 Browns.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Block Lower 4.tscn" type="PackedScene" id=8]
+[ext_resource path="res://High Score.tscn" type="PackedScene" id=9]
+
+[node name="main" type="Node"]
+script = ExtResource( 5 )
+level_list = [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Cursor" parent="." instance=ExtResource( 2 )]
+
+[node name="Game Controller" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="High Score" parent="." instance=ExtResource( 9 )]
+
+[connection signal="new_level" from="." to="UI" method="_on_main_new_level"]
+[connection signal="new_level" from="." to="High Score" method="_on_main_new_level"]
+[connection signal="new_level" from="." to="Game Controller" method="_on_main_new_level"]
+[connection signal="misplaced_stone" from="Game Controller" to="UI" method="_on_Game_Controller_misplaced_stone"]
+[connection signal="next_stone_is" from="Game Controller" to="Cursor" method="_on_Game_Controller_next_stone_is"]
+[connection signal="next_stone_is" from="Game Controller" to="High Score" method="_on_Game_Controller_next_stone_is"]
+[connection signal="undo" from="Game Controller" to="UI" method="_on_Game_Controller_undo"]
+[connection signal="high_score" from="High Score" to="UI" method="_on_High_Score_high_score"]
