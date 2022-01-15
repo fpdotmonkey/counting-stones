@@ -1,16 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://white_stone_label.gd" type="Script" id=1]
+[ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=2]
 
-[node name="White Stone Label" type="Label"]
-margin_right = 50.0
-margin_bottom = 50.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "888"
-align = 1
-valign = 1
+[sub_resource type="DynamicFont" id=1]
+size = 19
+font_data = ExtResource( 2 )
+
+[node name="White Stone Label" type="CenterContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 35.0
+margin_right = 78.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "888"
