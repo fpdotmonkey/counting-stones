@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://undo_count.gd" type="Script" id=1]
+[ext_resource path="res://ui.gd" type="Script" id=1]
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=3]

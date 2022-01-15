@@ -54,3 +54,10 @@ func initial_stones() -> Dictionary:
         if tile_coordinate.y == 1:
             stones[cell] = 1
     return stones
+
+
+func populate_stones(stones: Dictionary) -> void:
+    for coordinate in stones:
+        if stones[coordinate] == 1:
+            continue
+        place_stone(coordinate, stones[coordinate])

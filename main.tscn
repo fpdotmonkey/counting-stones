@@ -21,13 +21,9 @@ level_list = [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource
 [node name="Game Controller" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="High Score" parent="." instance=ExtResource( 9 )]
+[node name="Game State" parent="." instance=ExtResource( 9 )]
 
-[connection signal="new_level" from="." to="UI" method="_on_main_new_level"]
 [connection signal="new_level" from="." to="Game Controller" method="_on_main_new_level"]
-[connection signal="new_level" from="." to="High Score" method="_on_main_new_level"]
-[connection signal="misplaced_stone" from="Game Controller" to="UI" method="_on_Game_Controller_misplaced_stone"]
-[connection signal="next_stone_is" from="Game Controller" to="Cursor" method="_on_Game_Controller_next_stone_is"]
-[connection signal="next_stone_is" from="Game Controller" to="High Score" method="_on_Game_Controller_next_stone_is"]
-[connection signal="undo" from="Game Controller" to="UI" method="_on_Game_Controller_undo"]
-[connection signal="high_score" from="High Score" to="UI" method="_on_High_Score_high_score"]
+[connection signal="game_state" from="Game State" to="Cursor" method="_on_Game_State_game_state"]
+[connection signal="game_state" from="Game State" to="UI" method="_on_Game_State_game_state"]
+[connection signal="game_state_up" from="Game State" to="Game Controller" method="_on_Game_State_game_state_up"]

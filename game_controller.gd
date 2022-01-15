@@ -1,15 +1,8 @@
 extends Node
 
 
-signal undo
-signal misplaced_stone
-signal next_stone_is(value)
-
-
+var _game_state: Node
 var _current_level: Node
-var _placed_tiles = {}
-var _white_stone_value = 2
-var _move_history = []
 
 
 func is_valid_white_stone_spot(coordinate: Vector2, value: int) -> bool:
@@ -20,48 +13,56 @@ func is_valid_white_stone_spot(coordinate: Vector2, value: int) -> bool:
     for i in [-1, 0, 1]:
         for j in [-1, 0, 1]:
             var cell_coordinate = coordinate + Vector2(i, j)
-            local_value += _placed_tiles.get(cell_coordinate, 0)
+            local_value += _game_state.get_stones().get(cell_coordinate, 0)
 
     if local_value != value:
-        emit_signal("misplaced_stone")
+        _game_state.misplace_stone()
         return false
     return true
 
 
 func place_stone(coordinate: Vector2):
-    if not is_valid_white_stone_spot(coordinate, _white_stone_value):
+    if not is_valid_white_stone_spot(
+        coordinate, _game_state.get_next_stone_value()
+    ):
         return
 
-    _current_level.place_stone(coordinate, _white_stone_value)
-
-    _placed_tiles[coordinate] = _white_stone_value
-    _white_stone_value += 1
-    emit_signal("next_stone_is", _white_stone_value)
-    _move_history.append(coordinate)
+    _current_level.place_stone(coordinate, _game_state.get_next_stone_value())
+    _game_state.place_stone(coordinate)
+    _game_state.set_next_stone_diff_value(1)
 
 
 func undo():
-    var undone_move = _move_history.pop_back()
+    var undone_move = _game_state.undo()
     if undone_move == null:
         return
 
     _current_level.remove_stone(undone_move)
-    _placed_tiles.erase(undone_move)
-    _white_stone_value -= 1
-    emit_signal("next_stone_is", _white_stone_value)
-    emit_signal("undo")
+    _game_state.set_next_stone_diff_value(-1)
 
 
 func _on_main_new_level(node_path):
     _current_level = get_node(node_path)
     if not _current_level.has_method("initial_stones"):
-        push_error("PackedScene %s is not a stone-counting level" % _current_level.name)
+        push_error(
+            "PackedScene %s is not a stone-counting level" % _current_level.name
+        )
         return
-    _placed_tiles = _current_level.initial_stones()
-    _white_stone_value = 2
-    _move_history = []
 
-    emit_signal("next_stone_is", _white_stone_value)
+    _game_state.change_level(_current_level.get_path())
+
+    var previously_placed_stones: Dictionary = _game_state.get_stones()
+    if not previously_placed_stones.empty():
+        _current_level.populate_stones(previously_placed_stones)
+    else:
+        _game_state.set_stones(_current_level.initial_stones())
+
+    if _game_state.get_next_stone_value() < 2:
+        _game_state.set_next_stone_value(2)
+
+
+func _on_Game_State_game_state_up(node_path: NodePath):
+    _game_state = get_node(node_path)
 
 
 func _input(event):
