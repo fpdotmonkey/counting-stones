@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ui.gd" type="Script" id=1]
-[ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://code/ui.gd" type="Script" id=1]
+[ext_resource path="res://assets/Kenney Bold.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 13
 font_data = ExtResource( 2 )
 
@@ -30,7 +30,7 @@ custom_constants/separation = 25
 [node name="Scores" type="Label" parent="VBoxTop"]
 margin_right = 334.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "High score...888
 Undos...888

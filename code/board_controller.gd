@@ -10,7 +10,7 @@ const BROWN_STONE_LIGHT_CHECKER = Vector2(1, 1)
 const WHITE_STONE_DARK_CHECKER = Vector2(0, 2)
 const WHITE_STONE_LIGHT_CHECKER = Vector2(1, 2)
 
-var _white_stone_label = preload("res://White Stone Label.tscn")
+var _white_stone_label = preload("res://levels/White Stone Label.tscn")
 
 var _placed_labels = {}
 
