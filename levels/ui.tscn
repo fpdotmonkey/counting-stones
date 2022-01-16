@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://code/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/Kenney Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://levels/simple_ui.tres" type="Theme" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-size = 13
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -23,55 +30,112 @@ __meta__ = {
 }
 
 [node name="VBoxTop" type="VBoxContainer" parent="."]
-margin_right = 334.0
+margin_right = 352.0
 margin_bottom = 880.0
-custom_constants/separation = 25
+custom_constants/separation = 15
 
-[node name="Scores" type="Label" parent="VBoxTop"]
-margin_right = 334.0
-margin_bottom = 69.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "High score...888
-Undos...888
-Misplaced tiles...888"
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxTop"]
+margin_right = 352.0
+margin_bottom = 86.0
 
-[node name="Background2" type="ColorRect" parent="VBoxTop/Scores"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 5.0
-margin_bottom = 5.0
-color = Color( 0.34902, 0.34902, 0.34902, 0.662745 )
+[node name="Scores" type="PanelContainer" parent="VBoxTop/HBoxContainer"]
+margin_right = 209.0
+margin_bottom = 86.0
+theme = ExtResource( 3 )
+
+[node name="Score list" type="VBoxContainer" parent="VBoxTop/HBoxContainer/Scores"]
+margin_right = 209.0
+margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level Switch" type="Label" parent="VBoxTop"]
-margin_top = 94.0
+[node name="High score" type="HBoxContainer" parent="VBoxTop/HBoxContainer/Scores/Score list"]
+margin_right = 209.0
+margin_bottom = 30.0
+
+[node name="High score key" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/High score"]
+margin_right = 114.0
+margin_bottom = 30.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High score"
+valign = 2
+
+[node name="High score value" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/High score"]
+margin_left = 118.0
+margin_right = 158.0
+margin_bottom = 30.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "88"
+valign = 2
+
+[node name="Undos" type="HBoxContainer" parent="VBoxTop/HBoxContainer/Scores/Score list"]
+margin_top = 34.0
+margin_right = 209.0
+margin_bottom = 58.0
+
+[node name="Undos key" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/Undos"]
+margin_right = 65.0
+margin_bottom = 24.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Undos"
+valign = 2
+
+[node name="Undos value" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/Undos"]
+margin_left = 69.0
+margin_right = 101.0
+margin_bottom = 24.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "88"
+valign = 2
+
+[node name="Misplaced stones" type="HBoxContainer" parent="VBoxTop/HBoxContainer/Scores/Score list"]
+margin_top = 62.0
+margin_right = 209.0
+margin_bottom = 86.0
+
+[node name="Misplaced stones key" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/Misplaced stones"]
+margin_right = 173.0
+margin_bottom = 24.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Misplaced tiles"
+valign = 2
+
+[node name="Misplaced stones value" type="Label" parent="VBoxTop/HBoxContainer/Scores/Score list/Misplaced stones"]
+margin_left = 177.0
+margin_right = 209.0
+margin_bottom = 24.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "88"
+valign = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxTop"]
+margin_top = 101.0
+margin_right = 352.0
+margin_bottom = 146.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxTop/HBoxContainer2"]
 margin_right = 334.0
-margin_bottom = 139.0
+margin_bottom = 45.0
+theme = ExtResource( 3 )
+
+[node name="Level Switch" type="Label" parent="VBoxTop/HBoxContainer2/PanelContainer"]
+margin_right = 334.0
+margin_bottom = 45.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Press N for the next level
 Press P for the previous level"
 valign = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="VBoxTop/Level Switch"]
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 5.0
-margin_bottom = 5.0
-rect_pivot_offset = Vector2( 0, 1 )
-color = Color( 0.34902, 0.34902, 0.34902, 0.662745 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

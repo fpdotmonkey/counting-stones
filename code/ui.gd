@@ -1,17 +1,24 @@
 extends Node
 
 
-onready var _scores_label = get_node("VBoxTop/Scores")
+onready var _high_score_value = get_node(
+    "VBoxTop/HBoxContainer/Scores/Score list/High score/High score value"
+)
+onready var _undos_value = get_node(
+    "VBoxTop/HBoxContainer/Scores/Score list/Undos/Undos value"
+)
+onready var _misplaced_stone_value = get_node(
+    "VBoxTop/HBoxContainer/Scores/Score list/Misplaced stones/Misplaced stones value"
+)
 var _high_score = 0
 var _undo_count = 0
 var _misplaced_stone_count = 0
 
 
 func update_label():
-    var format = "High score: %d\nUndos: %d\nMisplaced tiles: %d"
-    _scores_label.set_text(
-        format % [_high_score, _undo_count, _misplaced_stone_count]
-    )
+    _high_score_value.set_text(str(_high_score))
+    _undos_value.set_text(str(_undo_count))
+    _misplaced_stone_value.set_text(str(_misplaced_stone_count))
 
 
 func _ready():
