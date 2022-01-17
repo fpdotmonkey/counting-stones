@@ -61,6 +61,11 @@ func _on_main_new_level(node_path):
         _game_state.set_next_stone_value(2)
 
 
+func _on_main_reset_level(node_path):
+    _current_level = get_node(node_path)
+    _game_state.reset(2, _current_level.initial_stones())
+
+
 func _on_Game_State_game_state_up(node_path: NodePath):
     _game_state = get_node(node_path)
 

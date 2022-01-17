@@ -2,6 +2,7 @@ extends Node
 
 
 signal new_level(node_path)
+signal reset_level(node_path)
 
 
 export(Array, PackedScene) var level_list
@@ -43,7 +44,7 @@ func reset_level():
     if _current_level == null:
         return
     destroy_current_level()
-    emit_signal("new_level", initialize_level(level_list[_level_list_index]))
+    emit_signal("reset_level", initialize_level(level_list[_level_list_index]))
 
 
 func key_down(event: InputEvent, scancode: int) -> bool:

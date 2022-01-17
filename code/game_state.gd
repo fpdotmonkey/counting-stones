@@ -33,6 +33,12 @@ class LevelState:
         _placed_stones.erase(undone_move)
         return undone_move
 
+
+    func reset(next_stone_value: int, initial_stones: Dictionary):
+        _next_stone_value = next_stone_value
+        _placed_stones = initial_stones
+        _move_history = []
+
     func misplace_stone():
         _misplaced_stone_count += 1
 
@@ -86,6 +92,11 @@ func undo():
     var undone_move = _current_level_state.undo()
     announce_game_state()
     return undone_move
+
+
+func reset(next_stone_value: int, initial_stones: Dictionary):
+    _current_level_state.reset(next_stone_value, initial_stones)
+    announce_game_state()
 
 
 func place_stone(coordinate: Vector2):
