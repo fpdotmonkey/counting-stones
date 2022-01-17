@@ -12,7 +12,7 @@
 
 [node name="main" type="Node"]
 script = ExtResource( 7 )
-level_list = [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 8 ) ]
+level_list = [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ) ]
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
@@ -24,6 +24,7 @@ script = ExtResource( 6 )
 [node name="Game State" parent="." instance=ExtResource( 2 )]
 
 [connection signal="new_level" from="." to="Game Controller" method="_on_main_new_level"]
+[connection signal="reset_level" from="." to="Game Controller" method="_on_main_reset_level"]
 [connection signal="game_state" from="Game State" to="Cursor" method="_on_Game_State_game_state"]
 [connection signal="game_state" from="Game State" to="UI" method="_on_Game_State_game_state"]
 [connection signal="game_state_up" from="Game State" to="Game Controller" method="_on_Game_State_game_state_up"]
