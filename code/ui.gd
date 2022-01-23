@@ -2,13 +2,13 @@ extends Node
 
 
 onready var _high_score_value = get_node(
-    "VBoxTop/HBoxContainer/Scores/Score list/High score/High score value"
+    "VBoxTop/HBoxContainer/Scores/Score list/High score value"
 )
 onready var _undos_value = get_node(
-    "VBoxTop/HBoxContainer/Scores/Score list/Undos/Undos value"
+    "VBoxTop/HBoxContainer/Scores/Score list/Undos value"
 )
 onready var _misplaced_stone_value = get_node(
-    "VBoxTop/HBoxContainer/Scores/Score list/Misplaced stones/Misplaced stones value"
+    "VBoxTop/HBoxContainer/Scores/Score list/Misplaced stones value"
 )
 var _high_score = 0
 var _undo_count = 0
