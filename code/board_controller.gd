@@ -16,17 +16,26 @@ var _placed_labels = {}
 
 
 func query_stone(coordinate: Vector2) -> Vector2:
-    return get_cell_autotile_coord(coordinate[0], coordinate[1])
+    return get_cell_autotile_coord(int(coordinate[0]), int(coordinate[1]))
 
 
 func is_placeable_tile(coordinate: Vector2) -> bool:
-    return get_cellv(coordinate) != -1 and query_stone(coordinate) in [DARK_CHECKER, LIGHT_CHECKER]
+    return (
+        get_cellv(coordinate) != -1
+        and query_stone(coordinate) in [DARK_CHECKER, LIGHT_CHECKER]
+    )
 
 
 func place_stone(coordinate: Vector2, white_stone_value: int):
     var stone_on_tile = query_stone(coordinate)
     set_cell(
-        coordinate[0], coordinate[1], CHECKER_TILE, false, false, false, stone_on_tile + WHITE_STONE_DARK_CHECKER
+        int(coordinate[0]),
+        int(coordinate[1]),
+        CHECKER_TILE,
+        false,
+        false,
+        false,
+        stone_on_tile + WHITE_STONE_DARK_CHECKER
     )
     var label = _white_stone_label.instance()
     label.init(white_stone_value, map_to_world(coordinate))
@@ -39,7 +48,13 @@ func remove_stone(coordinate: Vector2):
     if stone_on_tile.y == 0:
         return
     set_cell(
-        coordinate[0], coordinate[1], CHECKER_TILE, false, false, false, Vector2(stone_on_tile.x, 0)
+        int(coordinate[0]),
+        int(coordinate[1]),
+        CHECKER_TILE,
+        false,
+        false,
+        false,
+        Vector2(stone_on_tile.x, 0)
     )
     _placed_labels.get(coordinate).queue_free()
 

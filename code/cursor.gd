@@ -8,6 +8,6 @@ func _input(event):
 
 
 func _on_Game_State_game_state(
-    high_score, undo_count, misplaced_stone_count, next_stone_value
+    _high_score, _undo_count, _misplaced_stone_count, next_stone_value
 ):
     get_node("White Stone Label").set_label(next_stone_value)
