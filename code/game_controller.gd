@@ -70,12 +70,20 @@ func _on_Game_State_game_state_up(node_path: NodePath):
     _game_state = get_node(node_path)
 
 
-func _input(event):
-    if _current_level == null:
-        return
+func _on_UI_left_mouse_pressed(viewport_coordinate: Vector2):
+    place_stone(_current_level.world_to_map(viewport_coordinate))
 
-    if event is InputEventMouseButton and event.pressed:
-        if event.button_index == BUTTON_LEFT:
-            place_stone(_current_level.world_to_map(event.position))
-        if event.button_index == BUTTON_RIGHT:
-            undo()
+
+func _on_UI_right_mouse_pressed(_viewport_coordinate: Vector2):
+    undo()
+
+
+# func _unhandled_input(event):
+#     if _current_level == null:
+#         return
+
+#     if event is InputEventMouseButton and event.pressed:
+#         if event.button_index == BUTTON_LEFT:
+#             place_stone(_current_level.world_to_map(event.position))
+#         if event.button_index == BUTTON_RIGHT:
+#             undo()

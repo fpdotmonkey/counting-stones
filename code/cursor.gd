@@ -1,6 +1,9 @@
 extends Node2D
 
 
+onready var _white_stone_label = get_node("White Stone Label")
+
+
 func _input(event):
     if event is InputEventMouseMotion:
         set_visible(true)
@@ -10,4 +13,4 @@ func _input(event):
 func _on_Game_State_game_state(
     _high_score, _undo_count, _misplaced_stone_count, next_stone_value
 ):
-    get_node("White Stone Label").set_label(next_stone_value)
+    _white_stone_label.set_label(next_stone_value)

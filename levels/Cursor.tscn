@@ -13,7 +13,7 @@ visible = false
 z_index = 1
 script = ExtResource( 3 )
 
-[node name="Node" type="Sprite" parent="."]
+[node name="White Stone Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 centered = false
 
