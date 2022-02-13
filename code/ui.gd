@@ -14,12 +14,6 @@ onready var _scores_panel = get_node("HUD/VBoxTop/Scores")
 onready var _high_score_value = get_node(
     "HUD/VBoxTop/Scores/Score list/High score value"
 )
-onready var _undos_value = get_node(
-    "HUD/VBoxTop/Scores/Score list/Undos value"
-)
-onready var _misplaced_stone_value = get_node(
-    "HUD/VBoxTop/Scores/Score list/Misplaced stones value"
-)
 
 onready var _settings_button = get_node("HUD/VBoxTop/Settings Button")
 onready var _undo_button = get_node("HUD/VBoxTop/Undo Button")
@@ -39,8 +33,6 @@ var _play_visible = true
 
 func update_scores():
     _high_score_value.set_text(str(_high_score))
-    _undos_value.set_text(str(_undo_count))
-    _misplaced_stone_value.set_text(str(_misplaced_stone_count))
 
 
 func move_cursor_to(coordinate: Vector2):
@@ -114,8 +106,6 @@ func _on_Game_State_game_state(
     next_stone_value: int
 ):
     _high_score = high_score
-    _undo_count = undo_count
-    _misplaced_stone_count = misplaced_stone_count
     update_scores()
     set_cursor_label_to(next_stone_value)
 

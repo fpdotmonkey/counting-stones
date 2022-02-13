@@ -52,19 +52,19 @@ custom_constants/separation = 15
 
 [node name="Scores" type="PanelContainer" parent="HUD/VBoxTop"]
 margin_right = 209.0
-margin_bottom = 102.0
+margin_bottom = 34.0
 mouse_filter = 2
 
 [node name="Score list" type="GridContainer" parent="HUD/VBoxTop/Scores"]
 margin_right = 209.0
-margin_bottom = 102.0
+margin_bottom = 34.0
 mouse_filter = 2
 custom_constants/vseparation = 0
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="High score key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_right = 157.0
+margin_right = 114.0
 margin_bottom = 34.0
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -72,8 +72,8 @@ text = "High score"
 valign = 2
 
 [node name="High score value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 177.0
-margin_right = 209.0
+margin_left = 134.0
+margin_right = 166.0
 margin_bottom = 34.0
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 10 )
@@ -81,50 +81,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "88"
 valign = 2
 
-[node name="Undos key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_top = 34.0
-margin_right = 157.0
-margin_bottom = 68.0
-size_flags_vertical = 5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Undos"
-valign = 2
-
-[node name="Undos value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 177.0
-margin_top = 34.0
-margin_right = 209.0
-margin_bottom = 68.0
-size_flags_vertical = 5
-custom_fonts/font = ExtResource( 10 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "88"
-valign = 2
-
-[node name="Misplaced stones key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_top = 68.0
-margin_right = 157.0
-margin_bottom = 102.0
-size_flags_vertical = 5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Misplaced tiles"
-valign = 2
-
-[node name="Misplaced stones value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 177.0
-margin_top = 68.0
-margin_right = 209.0
-margin_bottom = 102.0
-size_flags_vertical = 5
-custom_fonts/font = ExtResource( 10 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "88"
-valign = 2
-
 [node name="Settings Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 117.0
+margin_top = 49.0
 margin_right = 75.0
-margin_bottom = 192.0
+margin_bottom = 124.0
 size_flags_horizontal = 0
 toggle_mode = true
 keep_pressed_outside = true
@@ -133,23 +93,23 @@ texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
 
 [node name="Undo Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 207.0
+margin_top = 139.0
 margin_right = 67.0
-margin_bottom = 263.0
+margin_bottom = 195.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 2 )
 
 [node name="Next Level Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 278.0
+margin_top = 210.0
 margin_right = 68.0
-margin_bottom = 334.0
+margin_bottom = 266.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 12 )
 
 [node name="Previous Level Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 349.0
+margin_top = 281.0
 margin_right = 68.0
-margin_bottom = 405.0
+margin_bottom = 337.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 11 )
 
