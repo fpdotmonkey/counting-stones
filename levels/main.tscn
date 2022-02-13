@@ -22,7 +22,10 @@ script = ExtResource( 6 )
 
 [connection signal="new_level" from="." to="Game Controller" method="_on_main_new_level"]
 [connection signal="reset_level" from="." to="Game Controller" method="_on_main_reset_level"]
+[connection signal="next_level" from="UI" to="." method="_on_UI_next_level"]
 [connection signal="place_stone" from="UI" to="Game Controller" method="_on_UI_place_stone"]
+[connection signal="previous_level" from="UI" to="." method="_on_UI_previous_level"]
+[connection signal="reset_level" from="UI" to="." method="_on_UI_reset_level"]
 [connection signal="undo" from="UI" to="Game Controller" method="_on_UI_undo"]
 [connection signal="game_state" from="Game State" to="UI" method="_on_Game_State_game_state"]
 [connection signal="game_state_up" from="Game State" to="Game Controller" method="_on_Game_State_game_state_up"]

@@ -47,23 +47,13 @@ func reset_level():
     emit_signal("reset_level", initialize_level(level_list[_level_list_index]))
 
 
-func key_down(event: InputEvent, scancode: int) -> bool:
-    return (
-        event.scancode == scancode
-        and not event.is_echo()
-        and event.is_pressed()
-    )
+func _on_UI_next_level():
+    go_to_next_level()
 
 
+func _on_UI_previous_level():
+    go_to_previous_level()
 
-func _input(event):
-    if level_list.size() < 2 or _current_level == null:
-        return
 
-    if event is InputEventKey:
-        if key_down(event, KEY_N):
-            go_to_next_level()
-        elif key_down(event, KEY_P):
-            go_to_previous_level()
-        elif key_down(event, KEY_R):
-            reset_level()
+func _on_UI_reset_level():
+    reset_level()

@@ -47,7 +47,7 @@ margin_bottom = 27.0
 [node name="Control Data" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 margin_top = 50.0
 margin_right = 700.0
-margin_bottom = 154.0
+margin_bottom = 190.0
 custom_constants/hseparation = 18
 columns = 2
 
@@ -75,17 +75,30 @@ margin_right = 189.0
 margin_bottom = 68.0
 text = "P"
 
-[node name="Undo Key" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
+[node name="Reset Level Key" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
 margin_top = 72.0
 margin_right = 153.0
 margin_bottom = 104.0
-text = "Undo"
+text = "Reset Level"
 
-[node name="Right Mouse Button" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
+[node name="Reset Level Value" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
 margin_left = 171.0
 margin_top = 72.0
 margin_right = 189.0
 margin_bottom = 104.0
+text = "R"
+
+[node name="Undo Key" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
+margin_top = 108.0
+margin_right = 153.0
+margin_bottom = 140.0
+text = "Undo"
+
+[node name="Right Mouse Button" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Control Data"]
+margin_left = 171.0
+margin_top = 108.0
+margin_right = 189.0
+margin_bottom = 140.0
 ratio = 0.8
 stretch_mode = 0
 alignment_vertical = 0
@@ -97,9 +110,9 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="License" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 172.0
+margin_top = 208.0
 margin_right = 700.0
-margin_bottom = 204.0
+margin_bottom = 240.0
 text = "License"
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/License"]
@@ -111,9 +124,9 @@ __meta__ = {
 }
 
 [node name="Source Reference" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 222.0
+margin_top = 258.0
 margin_right = 700.0
-margin_bottom = 288.0
+margin_bottom = 324.0
 text = "The source may be found at <https://github.com/fpdotmonkey/counting-stones.git>."
 fit_content_height = true
 __meta__ = {
@@ -121,9 +134,9 @@ __meta__ = {
 }
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 306.0
+margin_top = 342.0
 margin_right = 700.0
-margin_bottom = 306.0
+margin_bottom = 342.0
 ratio = 4.0
 stretch_mode = 3
 alignment_horizontal = 0

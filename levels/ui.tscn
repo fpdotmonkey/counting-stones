@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://code/ui.gd" type="Script" id=1]
 [ext_resource path="res://assets/return.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://levels/Settings.tscn" type="PackedScene" id=8]
 [ext_resource path="res://levels/White Stone Label.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/CMU_Bright_SemiBold.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/arrowLeft.png" type="Texture" id=11]
+[ext_resource path="res://assets/arrowRight.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -137,6 +139,20 @@ margin_bottom = 263.0
 size_flags_horizontal = 0
 texture_normal = ExtResource( 2 )
 
+[node name="Next Level Button" type="TextureButton" parent="HUD/VBoxTop"]
+margin_top = 278.0
+margin_right = 68.0
+margin_bottom = 334.0
+size_flags_horizontal = 0
+texture_normal = ExtResource( 12 )
+
+[node name="Previous Level Button" type="TextureButton" parent="HUD/VBoxTop"]
+margin_top = 349.0
+margin_right = 68.0
+margin_bottom = 405.0
+size_flags_horizontal = 0
+texture_normal = ExtResource( 11 )
+
 [node name="Cursor" type="Node2D" parent="."]
 position = Vector2( -100, 0 )
 
@@ -151,3 +167,5 @@ centered = false
 [connection signal="mouse_exited" from="Game Click Target" to="." method="_on_Game_Click_Target_mouse_exited"]
 [connection signal="toggled" from="HUD/VBoxTop/Settings Button" to="." method="_on_Settings_Button_toggled"]
 [connection signal="pressed" from="HUD/VBoxTop/Undo Button" to="." method="_on_Undo_Button_pressed"]
+[connection signal="pressed" from="HUD/VBoxTop/Next Level Button" to="." method="_on_Next_Level_Button_pressed"]
+[connection signal="pressed" from="HUD/VBoxTop/Previous Level Button" to="." method="_on_Previous_Level_Button_pressed"]
