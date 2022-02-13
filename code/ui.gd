@@ -21,7 +21,7 @@ onready var _settings_button = get_node(
     "HUD/VBoxTop/Settings Button"
 )
 onready var _cursor = get_node("Cursor")
-onready var _cursor_value = get_node("Cursor/White Stone/White Stone Value")
+onready var _cursor_value = get_node("Cursor/White Stone/White Stone Label")
 
 var _high_score = 0
 var _undo_count = 0
@@ -39,8 +39,8 @@ func move_cursor_to(coordinate: Vector2):
     _cursor.set_position(coordinate + Vector2(-50, -50))
 
 
-func set_cursor_value_to(value: int):
-    _cursor_value.set_text(str(value))
+func set_cursor_label_to(value: int):
+    _cursor_value.set_label(value)
 
 
 func set_play_mode():
@@ -88,7 +88,7 @@ func _on_Game_State_game_state(
     _undo_count = undo_count
     _misplaced_stone_count = misplaced_stone_count
     update_scores()
-    set_cursor_value_to(next_stone_value)
+    set_cursor_label_to(next_stone_value)
 
 
 func _on_Settings_Button_mouse_entered():

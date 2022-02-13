@@ -1,30 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://code/ui.gd" type="Script" id=1]
-[ext_resource path="res://assets/Kenney Space.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://levels/simple_ui.tres" type="Theme" id=3]
 [ext_resource path="res://assets/sprocket_hover.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprocket_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprocket_normal.png" type="Texture" id=6]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=7]
 [ext_resource path="res://levels/Settings.tscn" type="PackedScene" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 2 )
+[ext_resource path="res://levels/White Stone Label.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/CMU_Bright_SemiBold.tres" type="DynamicFont" id=10]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 7 )
 region = Rect2( 100, 300, 100, 100 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 21
-font_data = ExtResource( 2 )
 
 [node name="UI" type="Node"]
 script = ExtResource( 1 )
@@ -54,85 +42,86 @@ __meta__ = {
 }
 
 [node name="VBoxTop" type="VBoxContainer" parent="HUD"]
-margin_right = 231.0
+margin_right = 150.0
 margin_bottom = 880.0
 mouse_filter = 2
 custom_constants/separation = 15
 
 [node name="Scores" type="PanelContainer" parent="HUD/VBoxTop"]
-margin_right = 231.0
-margin_bottom = 89.0
+margin_right = 150.0
+margin_bottom = 102.0
 mouse_filter = 2
 
 [node name="Score list" type="GridContainer" parent="HUD/VBoxTop/Scores"]
-margin_right = 231.0
-margin_bottom = 89.0
+margin_right = 150.0
+margin_bottom = 102.0
 mouse_filter = 2
+custom_constants/vseparation = 0
 custom_constants/hseparation = 20
 columns = 2
 
 [node name="High score key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_right = 173.0
-margin_bottom = 27.0
+margin_right = 98.0
+margin_bottom = 34.0
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "High score"
 valign = 2
 
 [node name="High score value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 193.0
-margin_right = 231.0
-margin_bottom = 27.0
+margin_left = 118.0
+margin_right = 150.0
+margin_bottom = 34.0
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "88"
 valign = 2
 
 [node name="Undos key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_top = 31.0
-margin_right = 173.0
-margin_bottom = 58.0
+margin_top = 34.0
+margin_right = 98.0
+margin_bottom = 68.0
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Undos"
 valign = 2
 
 [node name="Undos value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 193.0
-margin_top = 31.0
-margin_right = 231.0
-margin_bottom = 58.0
+margin_left = 118.0
+margin_top = 34.0
+margin_right = 150.0
+margin_bottom = 68.0
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "88"
 valign = 2
 
 [node name="Misplaced stones key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_top = 62.0
-margin_right = 173.0
-margin_bottom = 89.0
+margin_top = 68.0
+margin_right = 98.0
+margin_bottom = 102.0
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Misplaced tiles"
 valign = 2
 
 [node name="Misplaced stones value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 193.0
-margin_top = 62.0
-margin_right = 231.0
-margin_bottom = 89.0
+margin_left = 118.0
+margin_top = 68.0
+margin_right = 150.0
+margin_bottom = 102.0
 size_flags_vertical = 5
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "88"
 valign = 2
 
 [node name="Settings Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 104.0
+margin_top = 117.0
 margin_right = 75.0
-margin_bottom = 179.0
+margin_bottom = 192.0
 size_flags_horizontal = 0
 toggle_mode = true
 keep_pressed_outside = true
@@ -147,17 +136,7 @@ position = Vector2( -100, 0 )
 texture = SubResource( 4 )
 centered = false
 
-[node name="White Stone Value" type="Label" parent="Cursor/White Stone"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 5 )
-text = "88"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="White Stone Label" parent="Cursor/White Stone" instance=ExtResource( 9 )]
 
 [connection signal="gui_input" from="Game Click Target" to="." method="_on_Game_Click_Target_gui_input"]
 [connection signal="mouse_entered" from="HUD/VBoxTop/Settings Button" to="." method="_on_Settings_Button_mouse_entered"]
