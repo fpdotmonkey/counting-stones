@@ -66,13 +66,11 @@ var _level_states = []
 
 
 func announce_game_state() -> void:
-    emit_signal(
-        "game_state",
-        _current_level_state._high_score,
-        _current_level_state._undo_count,
-        _current_level_state._misplaced_stone_count,
-        _current_level_state._next_stone_value
-    )
+	emit_signal(
+		"game_state",
+		_current_level_state._high_score,
+		_current_level_state._next_stone_value
+	)
 
 
 func change_level(level: NodePath):

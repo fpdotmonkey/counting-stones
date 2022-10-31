@@ -100,10 +100,8 @@ func _input(event):
 
 
 func _on_Game_State_game_state(
-    high_score: int,
-    undo_count: int,
-    misplaced_stone_count: int,
-    next_stone_value: int
+	high_score: int,
+	next_stone_value: int
 ):
     _high_score = high_score
     update_scores()
