@@ -45,18 +45,18 @@ __meta__ = {
 }
 
 [node name="VBoxTop" type="VBoxContainer" parent="HUD"]
-margin_right = 209.0
+margin_right = 166.0
 margin_bottom = 880.0
 mouse_filter = 2
 custom_constants/separation = 15
 
 [node name="Scores" type="PanelContainer" parent="HUD/VBoxTop"]
-margin_right = 209.0
+margin_right = 166.0
 margin_bottom = 34.0
 mouse_filter = 2
 
 [node name="Score list" type="GridContainer" parent="HUD/VBoxTop/Scores"]
-margin_right = 209.0
+margin_right = 166.0
 margin_bottom = 34.0
 mouse_filter = 2
 custom_constants/vseparation = 0
@@ -76,8 +76,8 @@ margin_left = 134.0
 margin_right = 166.0
 margin_bottom = 34.0
 size_flags_vertical = 5
-custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
 text = "88"
 valign = 2
 
