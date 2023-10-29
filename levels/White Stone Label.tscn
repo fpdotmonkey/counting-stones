@@ -1,29 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dwgshccwim381"]
 
-[ext_resource path="res://assets/cmunbsr.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://code/white_stone_label.gd" type="Script" id=2]
+[ext_resource type="FontFile" uid="uid://4d1lardgf5ib" path="res://assets/cmunbsr.ttf" id="1"]
+[ext_resource type="Theme" uid="uid://da7bbmw4sdqxf" path="res://levels/simple_ui.tres" id="1_nv7j5"]
+[ext_resource type="Script" path="res://code/white_stone_label.gd" id="2"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 45
-extra_spacing_bottom = -5
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [node name="White Stone Label" type="CenterContainer"]
-margin_right = 100.0
-margin_bottom = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
 mouse_filter = 2
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1_nv7j5")
+script = ExtResource("2")
 
 [node name="Label" type="Label" parent="."]
-margin_left = 26.0
-margin_top = 23.0
-margin_right = 74.0
-margin_bottom = 76.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 30
 text = "88"
-align = 1
-valign = 1

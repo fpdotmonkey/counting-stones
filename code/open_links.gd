@@ -2,7 +2,7 @@ extends Object
 
 func _ready():
 	# if OS.get_name() != "HTML5":
-	var connect_retort = connect("meta_clicked", self, "_on_RichTextLabel_meta_clicked")
+	var connect_retort = connect("meta_clicked", Callable(self, "_on_RichTextLabel_meta_clicked"))
 	if connect_retort != OK:
 		print("Failed to connect `meta_clicked`, error code ", connect_retort)
 

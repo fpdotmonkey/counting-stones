@@ -1,126 +1,106 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=14 format=3 uid="uid://bvfuu2yrwtuc0"]
 
-[ext_resource path="res://code/ui.gd" type="Script" id=1]
-[ext_resource path="res://assets/return.png" type="Texture" id=2]
-[ext_resource path="res://levels/simple_ui.tres" type="Theme" id=3]
-[ext_resource path="res://assets/sprocket_hover.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprocket_pressed.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprocket_normal.png" type="Texture" id=6]
-[ext_resource path="res://assets/tiles.png" type="Texture" id=7]
-[ext_resource path="res://levels/Settings.tscn" type="PackedScene" id=8]
-[ext_resource path="res://levels/White Stone Label.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/CMU_Bright_SemiBold.tres" type="DynamicFont" id=10]
-[ext_resource path="res://assets/arrowLeft.png" type="Texture" id=11]
-[ext_resource path="res://assets/arrowRight.png" type="Texture" id=12]
+[ext_resource type="Script" path="res://code/ui.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://lhuankjhn2ox" path="res://assets/return.png" id="2"]
+[ext_resource type="Theme" uid="uid://da7bbmw4sdqxf" path="res://levels/simple_ui.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://bvc6colqfjvie" path="res://assets/sprocket_hover.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bnam5h3ugadf4" path="res://assets/sprocket_pressed.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dl5d1hj48jy4e" path="res://assets/sprocket_normal.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dhknid01gj6o8" path="res://assets/tiles.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://ba0l5yooylcuj" path="res://levels/Settings.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://dwgshccwim381" path="res://levels/White Stone Label.tscn" id="9"]
+[ext_resource type="FontFile" path="res://levels/CMU_Bright_SemiBold.tres" id="10"]
+[ext_resource type="Texture2D" uid="uid://by1tlt7q73vvg" path="res://assets/arrowLeft.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://rva52nwo4m0c" path="res://assets/arrowRight.png" id="12"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 7 )
-region = Rect2( 100, 300, 100, 100 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("7")
+region = Rect2(100, 300, 100, 100)
 
 [node name="UI" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Game Click Target" type="LinkButton" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 button_mask = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Settings" parent="." instance=ExtResource( 8 )]
+[node name="Settings" parent="." instance=ExtResource("8")]
 
 [node name="HUD" type="MarginContainer" parent="."]
+anchors_preset = 9
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 mouse_filter = 2
-theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("3")
 
 [node name="VBoxTop" type="VBoxContainer" parent="HUD"]
-margin_right = 166.0
-margin_bottom = 880.0
+layout_mode = 2
 mouse_filter = 2
-custom_constants/separation = 15
+theme_override_constants/separation = 15
 
 [node name="Scores" type="PanelContainer" parent="HUD/VBoxTop"]
-margin_right = 166.0
-margin_bottom = 34.0
+layout_mode = 2
 mouse_filter = 2
 
 [node name="Score list" type="GridContainer" parent="HUD/VBoxTop/Scores"]
-margin_right = 166.0
-margin_bottom = 34.0
+layout_mode = 2
 mouse_filter = 2
-custom_constants/vseparation = 0
-custom_constants/hseparation = 20
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 0
 columns = 2
 
 [node name="High score key" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_right = 114.0
-margin_bottom = 34.0
+layout_mode = 2
 size_flags_vertical = 5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "High score"
-valign = 2
 
 [node name="High score value" type="Label" parent="HUD/VBoxTop/Scores/Score list"]
-margin_left = 134.0
-margin_right = 166.0
-margin_bottom = 34.0
+layout_mode = 2
 size_flags_vertical = 5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 10 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10")
 text = "88"
-valign = 2
 
 [node name="Settings Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 49.0
-margin_right = 75.0
-margin_bottom = 124.0
+layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("5")
+texture_hover = ExtResource("4")
 
 [node name="Undo Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 139.0
-margin_right = 67.0
-margin_bottom = 195.0
+layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource("2")
 
 [node name="Next Level Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 210.0
-margin_right = 68.0
-margin_bottom = 266.0
+layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource("12")
 
 [node name="Previous Level Button" type="TextureButton" parent="HUD/VBoxTop"]
-margin_top = 281.0
-margin_right = 68.0
-margin_bottom = 337.0
+layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource( 11 )
+texture_normal = ExtResource("11")
 
 [node name="Cursor" type="Node2D" parent="."]
-position = Vector2( -100, 0 )
+position = Vector2(-100, 0)
 
-[node name="White Stone" type="Sprite" parent="Cursor"]
-texture = SubResource( 1 )
+[node name="White Stone" type="Sprite2D" parent="Cursor"]
+texture = SubResource("1")
 centered = false
 
-[node name="White Stone Label" parent="Cursor/White Stone" instance=ExtResource( 9 )]
+[node name="White Stone Label" parent="Cursor/White Stone" instance=ExtResource("9")]
 
 [connection signal="gui_input" from="Game Click Target" to="." method="_on_Game_Click_Target_gui_input"]
 [connection signal="mouse_entered" from="Game Click Target" to="." method="_on_Game_Click_Target_mouse_entered"]
