@@ -15,7 +15,6 @@ signal reset_level
 	"HUD/VBoxTop/Scores/Score list/High score value"
 )
 
-@onready var _settings_button = get_node("HUD/VBoxTop/Settings Button")
 @onready var _undo_button = get_node("HUD/VBoxTop/Undo Button")
 @onready var _next_level_button = get_node("HUD/VBoxTop/Next Level Button")
 @onready var _previous_level_button = get_node(
@@ -26,8 +25,6 @@ signal reset_level
 @onready var _cursor_value = get_node("Cursor/White Stone/White Stone Label")
 
 var _high_score = 0
-var _undo_count = 0
-var _misplaced_stone_count = 0
 var _play_visible = true
 
 
