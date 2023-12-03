@@ -8,21 +8,17 @@ signal previous_level
 signal reset_level
 
 
-@onready var _game_click_target = get_node("Game Click Target")
-@onready var _settings_panel = get_node("Settings")
-@onready var _scores_panel = get_node("HUD/VBoxTop/Scores")
-@onready var _high_score_value = get_node(
-	"HUD/VBoxTop/Scores/Score list/High score value"
-)
+@onready var _game_click_target = $"Game Click Target"
+@onready var _settings_panel = $"Settings"
+@onready var _scores_panel = $"HUD/VBoxTop/Scores"
+@onready var _high_score_value = $"HUD/VBoxTop/Scores/Score list/High score value"
 
-@onready var _undo_button = get_node("HUD/VBoxTop/Undo Button")
-@onready var _next_level_button = get_node("HUD/VBoxTop/Next Level Button")
-@onready var _previous_level_button = get_node(
-	"HUD/VBoxTop/Previous Level Button"
-)
+@onready var _undo_button = $"HUD/VBoxTop/Undo Button"
+@onready var _next_level_button = $"HUD/VBoxTop/Next Level Button"
+@onready var _previous_level_button = $"HUD/VBoxTop/Previous Level Button"
 
-@onready var _cursor = get_node("Cursor")
-@onready var _cursor_value = get_node("Cursor/White Stone/White Stone Label")
+@onready var _cursor = $"Cursor"
+@onready var _cursor_value = $"Cursor/White Stone/White Stone Label"
 
 var _high_score = 0
 var _play_visible = true
